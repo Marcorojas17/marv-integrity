@@ -1,0 +1,9 @@
+name: Forense SHA256 Diario
+on:
+  schedule: [{cron: "0 3 * * *"}]
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+            - uses: actions/checkout@v4
+            - run: ./scripts/verify-integrity.sh
