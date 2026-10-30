@@ -1,3 +1,12 @@
+# KRONOS SUPERIOR · 2099
+> **El ecosistema soberano de integridad, criptografía y arte digital.**
+
+Este repositorio es el núcleo (`apps/html-standalone`) del gran ecosistema KRONOS. 
+Las herramientas aquí presentes operan 100% offline y representan el 51% Humano y 49% IA de mi fundador.
+
+## 🚀 Acceso Rápido
+- [Portal de Aplicaciones (App Hub)](https://marcorojas17.github.io/marv-integrity/)
+
 <div align="center">
   <h1>■_□ MARV ○_●</h1>
   <p><strong>Sovereign Integrity Ecosystem · Software Engineer & Cybersecurity</strong></p>
