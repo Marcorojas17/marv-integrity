@@ -1,65 +1,55 @@
-# KRONOS SUPERIOR · 2099
-> **El ecosistema soberano de integridad, criptografía y arte digital.**
-
-Este repositorio es el núcleo (`apps/html-standalone`) del gran ecosistema KRONOS. 
-Las herramientas aquí presentes operan 100% offline y representan el 51% Humano y 49% IA de mi fundador.
-
-## 🚀 Acceso Rápido
-- [Portal de Aplicaciones (App Hub)](https://marcorojas17.github.io/marv-integrity/)
-
 <div align="center">
-  <h1>■_□ MARV ○_●</h1>
-  <p><strong>Sovereign Integrity Ecosystem · Software Engineer & Cybersecurity</strong></p>
+  <h1>🏛️ KRONOS SUPERIOR · 2099</h1>
+  <p><strong>El ecosistema soberano de integridad, criptografía y arte digital.</strong></p>
+  
+  [![Build](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)](#)
+  [![Security](https://img.shields.io/badge/security-scan--active-blue?style=flat-square)](#)
+  [![License](https://img.shields.io/badge/license-Proprietary-red?style=flat-square)](#)
+  [![Status](https://img.shields.io/badge/status-in--development-orange?style=flat-square)](#)
 </div>
 
 ---
 
-### 🛠 Languages and Tools
+### 🏗️ Arquitectura de la Ciudad Digital
+Este repositorio es un **Monorepo de nivel Enterprise** diseñado para construir, desplegar y escalar el ecosistema KRONOS. No es un solo proyecto; es una infraestructura completa.
 
+*   🚀 **[`/apps`](apps/)**: Aplicaciones desplegables (Landing, Dashboard, Verificadores HTML Standalone).
+*   📦 **[`/packages`](packages/)**: Código compartido (Core KRONOS, SDKs, componentes UI).
+*   ⚙️ **[`/services`](services/)**: Backends, APIs y Workers (Blockchain, OCR, Billing).
+*   📜 **[`/contracts`](contracts/)**: Contratos inteligentes en Solidity (KronosRegistry, DAO).
+*   🧠 **[`/ai`](ai/)**: Modelos de inteligencia artificial (Visión, detección de fraude).
+*   🗄️ **[`/database`](database/)**: Esquemas SQL, RLS y migraciones.
+*   🏗️ **[`/infra`](infra/)**: Infraestructura como código (Terraform, Vercel, Cloudflare).
+*   ⚖️ **[`/legal`](legal/)**: Registros SafeCreative, políticas de privacidad, contratos (MSA, SLA).
+*   🏛️ **[`/soberano`](soberano/)**: Acta Fundacional, Manifiesto 51/49, Protocolo SHEM VERDE.
+
+---
+
+### 🚀 Acceso Rápido a las Aplicaciones Vivas
+El App Hub está desplegado y funcionando 100% offline en GitHub Pages:
+
+🔗 **[Abrir el Portal KRONOS (App Hub)](https://marcorojas17.github.io/marv-integrity/)**
+
+---
+
+### 🛠️ Stack Tecnológico Global
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=nodejs,js,python,html,css,docker,git,github,linux,bash,nginx,aws,ubuntu,vscode,visualstudio&theme=dark" />
+  <img src="https://skillicons.dev/icons?i=ts,nextjs,nodejs,python,solidity,docker,kubernetes,terraform,supabase,postgres,cloudflare,github&theme=dark" />
 </div>
 
 ---
 
-### 📊 GitHub Stats
+### 🎭 La Filosofía 51 / 49
+> *"El futuro de la logística, la seguridad y la programación es híbrido. No construimos herramientas para reemplazar al humano, construimos infraestructura para potenciarlo."*
+> **— Marco A. Rojas Valdovinos (Fundador)**
 
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Marcorojas17&show_icons=true&theme=radical&hide_border=true&count_private=true" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Marcorojas17&layout=compact&theme=radical&hide_border=true" />
-</div>
-
----
-
-### 🚀 About Me
-
-> ⚡ **A big fan of cryptography and building sovereign systems.**
-> 🎓 **I'm a Software Engineer building the MARV / KRONOS ecosystem.**
-> 🔐 **Creating offline-first integrity verifiers and quantum art certificates.**
-
-<div align="center">
-  <a href="https://marcorojas17.github.io/marv-integrity/"><img src="https://img.shields.io/badge/🌐_Live_App_Hub-00f2fe?style=for-the-badge&logoColor=black" alt="App Hub"></a>
-  <a href="https://github.com/Marcorojas17"><img src="https://img.shields.io/badge/Follow-00f2fe?style=for-the-badge&logo=github&logoColor=black" alt="Follow"></a>
-</div>
+*   **51% Humano**: Intención, juicio, ética, ejecución y visión de negocio.
+*   **49% IA**: Velocidad, cálculo criptográfico, análisis de patrones y despliegue.
+*   **100% Soberanía**: Cero dependencias innecesarias. Todo el núcleo es auditable.
 
 ---
 
-### ⏱️ I'm a Night Owl 🦉
-
-<!-- Este gráfico se actualiza solo si conectas tu cuenta de WakaTime -->
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/wakatime?username=Marcorojas17&theme=radical&hide_border=true&layout=compact" />
-</div>
-
----
-
-### 📈 I'm Most Productive on...
-
-<div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Marcorojas17&theme=radical&utcOffset=-6" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Marcorojas17&theme=radical" />
-</div>
-
-<div align="center">
-  <i>"El legado no se hereda. Se firma." — KINTSUGI 2026</i>
+  <i>"El legado no se hereda. Se firma." — KINTSUGI 2026</i><br>
+  <sub>Lerma, Estado de México · TOLUCA-GLOBAL</sub>
 </div>
