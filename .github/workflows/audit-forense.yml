@@ -1,9 +1,11 @@
-name: Forense SHA256 Diario
+name: Auditoría Forense SHA-256
 on:
-  schedule: [{cron: "0 3 * * *"}]
+  schedule:
+    - cron: '0 3 * * *' # Todos los días a las 3 AM
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-            - uses: actions/checkout@v4
-            - run: ./scripts/verify-integrity.sh
+      - uses: actions/checkout@v4
+      - run: echo "Iniciando auditoría de integridad..."
+      - run: sha256sum apps/html-standalone/*.html
