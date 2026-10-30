@@ -3,36 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>■_□ MARV ○_● · App Hub</title>
+<title>🏛️ KRONOS SUPERIOR · 2099</title>
 <style>
+:root{--bg:#030206;--card:rgba(16,12,32,.65);--border:rgba(0,242,254,.15);--text:#e3def2;--muted:#6e658a;--cyan:#00f2fe;--gold:#ff9f1c;--grad:linear-gradient(135deg,#00f2fe,#ff9f1c);--radius:16px;--font:system-ui,-apple-system,sans-serif;--mono:'Courier New',monospace}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#05040a;color:#e3def2;font-family:system-ui;padding:20px;min-height:100vh}
-#bg{position:fixed;inset:0;z-index:0;opacity:.3;pointer-events:none}
-.container{max-width:1000px;margin:0 auto;position:relative;z-index:1}
-header{text-align:center;margin-bottom:40px;padding-top:20px}
-h1{font-size:2rem;color:#00f2fe;font-family:monospace;letter-spacing:2px;text-shadow:0 0 20px rgba(0,242,254,.4);margin-bottom:8px}
-.subtitle{color:#a29cb8;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:rgba(16,12,32,.6);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;text-decoration:none;color:#e3def2;transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#00f2fe,#ff9f1c);opacity:0;transition:.3s}
-.card:hover{transform:translateY(-5px);border-color:rgba(0,242,254,.4);box-shadow:0 10px 30px rgba(0,242,254,.15)}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;padding:20px;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:0;opacity:.4;pointer-events:none}
+.container{max-width:1100px;margin:0 auto;position:relative;z-index:1;padding-top:40px}
+header{text-align:center;margin-bottom:50px}
+.logo{font-size:2.5rem;font-family:var(--mono);color:var(--cyan);text-shadow:0 0 20px rgba(0,242,254,.5);margin-bottom:10px;font-weight:bold}
+h1{font-size:1.2rem;color:var(--text);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.subtitle{color:var(--muted);font-size:0.9rem;font-family:var(--mono);letter-spacing:1px}
+.badges{display:flex;justify-content:center;gap:10px;margin-top:15px;flex-wrap:wrap}
+.badge{font-size:0.65rem;padding:4px 12px;border-radius:20px;border:1px solid var(--cyan);color:var(--cyan);font-family:var(--mono);background:rgba(0,242,254,.05);text-transform:uppercase;letter-spacing:1px}
+.badge.gold{border-color:var(--gold);color:var(--gold);background:rgba(255,159,28,.05)}
+.grid-title{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid var(--border);font-weight:bold;margin-top:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-decoration:none;color:var(--text);transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--grad);opacity:0;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:rgba(0,242,254,.4);box-shadow:0 10px 30px rgba(0,242,254,.1)}
 .card:hover::before{opacity:1}
-.card-icon{font-size:2.5rem;margin-bottom:12px}
-.card h2{font-size:1.2rem;color:#ff9f1c;margin-bottom:8px}
-.card p{font-size:0.85rem;color:#6e658a;line-height:1.5;margin-bottom:16px}
-.tag{display:inline-block;font-size:0.7rem;padding:4px 10px;border-radius:20px;background:rgba(0,242,254,.1);color:#00f2fe;border:1px solid rgba(0,242,254,.3);font-family:monospace}
-footer{text-align:center;margin-top:50px;color:#58536e;font-size:0.8rem;font-family:monospace}
+.card-icon{font-size:2.5rem;margin-bottom:15px}
+.card h2{font-size:1.1rem;color:var(--gold);margin-bottom:8px;font-weight:700}
+.card p{font-size:0.85rem;color:var(--muted);line-height:1.5;margin-bottom:20px}
+.tag{display:inline-block;align-self:flex-start;font-size:0.65rem;padding:4px 12px;border-radius:20px;background:rgba(0,255,102,.1);color:#00ff66;border:1px solid #00ff66;font-family:var(--mono);font-weight:bold}
+.tag.soon{background:rgba(255,255,255,.05);color:var(--muted);border-color:var(--muted)}
+footer{text-align:center;margin-top:60px;padding-top:20px;border-top:1px solid var(--border);color:var(--muted);font-size:0.8rem;font-family:var(--mono)}
+footer span{color:var(--gold)}
+@media(max-width:600px){.logo{font-size:1.8rem}header{margin-bottom:30px}.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <canvas id="bg"></canvas>
 <div class="container">
 <header>
-<h1>■_□ MARV ○_●</h1>
-<p class="subtitle">Sovereign Integrity Ecosystem</p>
+<div class="logo">■_□ MARV ○_●</div>
+<h1>KRONOS SUPERIOR · 2099</h1>
+<p class="subtitle">Sovereign Integrity & Forensics Ecosystem</p>
+<div class="badges">
+<span class="badge">● LIVE</span>
+<span class="badge">v1.0.0</span>
+<span class="badge gold">51% H / 49% IA</span>
+</div>
 </header>
-<div class="grid">
 
+<div class="grid-title">⚡ Aplicaciones Desplegadas</div>
+<div class="grid">
 <a href="apps/html-standalone/verifier-v14.html" class="card">
 <span class="card-icon">💠</span>
 <div>
@@ -59,29 +75,54 @@ footer{text-align:center;margin-top:50px;color:#58536e;font-size:0.8rem;font-fam
 </div>
 <span class="tag">● LIVE</span>
 </a>
+</div>
 
-<a href="apps/html-standalone/kronos.html" class="card">
-<span class="card-icon">📄</span>
+<div class="grid-title">🏗️ Módulos del Ecosistema (En Desarrollo)</div>
+<div class="grid">
+<div class="card">
+<span class="card-icon">🛡️</span>
 <div>
-<h2>Kronos Recibo</h2>
-<p>Generador clásico de recibos de integridad en formato de texto plano.</p>
+<h2>Ransomware Auditor</h2>
+<p>Análisis heurístico de archivos, firmas de malware y mitigación de riesgos (v4.0).</p>
 </div>
-<span class="tag">● LIVE</span>
-</a>
+<span class="tag soon">EN DESARROLLO</span>
+</div>
 
+<div class="card">
+<span class="card-icon">⚖️</span>
+<div>
+<h2>Compliance Enterprise</h2>
+<p>Auditoría de cumplimiento normativo y panel de control empresarial (v8.0).</p>
 </div>
-<footer>KRONOS LEGADO · MARV 2099 · 100% Offline-First</footer>
+<span class="tag soon">EN DESARROLLO</span>
 </div>
+
+<div class="card">
+<span class="card-icon">🌐</span>
+<div>
+<h2>Telemetry 3D</h2>
+<p>Visualización de flujos de datos en tres dimensiones usando Three.js.</p>
+</div>
+<span class="tag soon">EN DESARROLLO</span>
+</div>
+</div>
+
+<footer>
+<p>© 2026 <span>KRONOS TECHNOLOGIES S.A.S.</span> (En formación) · Lerma, México</p>
+<p style="margin-top:5px;font-size:0.7rem">"El legado no se hereda. Se firma." — KINTSUGI</p>
+</footer>
+</div>
+
 <script>
 (function(){
 var cv=document.getElementById('bg'),x=cv.getContext('2d'),CH='0123456789ABCDEF',cols,dr;
 function init(){cv.width=innerWidth;cv.height=innerHeight;cols=Math.floor(cv.width/16);dr=Array(cols).fill(0).map(function(){return Math.random()*-50})}
 init();addEventListener('resize',init);
 setInterval(function(){
-  x.fillStyle='rgba(5,4,10,0.1)';x.fillRect(0,0,cv.width,cv.height);
+  x.fillStyle='rgba(3,2,6,0.1)';x.fillRect(0,0,cv.width,cv.height);
   x.font='14px monospace';
   for(var i=0;i<cols;i++){
-    x.fillStyle=Math.random()>.9?'rgba(0,242,254,0.8)':'rgba(255,159,28,0.15)';
+    x.fillStyle=Math.random()>.95?'rgba(0,242,254,0.8)':(Math.random()>.98?'rgba(255,159,28,0.6)':'rgba(110,101,138,0.15)');
     x.fillText(CH[Math.floor(Math.random()*16)],i*16,dr[i]*16);
     if(dr[i]*16>cv.height&&Math.random()>.97)dr[i]=0;
     dr[i]++;
@@ -91,6 +132,3 @@ setInterval(function(){
 </script>
 </body>
 </html>
-cat > index.html << 'EOF'
-cd ~/marv-integrity
-cat > index.html << 'EOF'
