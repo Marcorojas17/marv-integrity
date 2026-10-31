@@ -38,7 +38,7 @@ export default function Dashboard() {
       if (data.success) {
         setProductName('');
         setSku('');
-        fetchFolios(); // Recargar la lista
+        fetchFolios();
       } else {
         alert("Error: " + data.error);
       }
@@ -49,57 +49,75 @@ export default function Dashboard() {
   }
 
   return (
-    <main style={{ padding: '40px', fontFamily: 'monospace', backgroundColor: '#05040a', minHeight: '100vh', color: '#fff' }}>
-      <header style={{ marginBottom: '40px', borderBottom: '1px solid #333', paddingBottom: '20px' }}>
-        <h1 style={{ color: '#00f2fe', margin: 0 }}>🛡️ EVIDENCE INTEGRITY OS</h1>
-        <p style={{ color: '#6e658a', marginTop: '5px' }}>Panel de Control de Folios</p>
+    <main style={{ padding: '40px 20px', fontFamily: 'monospace', backgroundColor: '#05040a', minHeight: '100vh', color: '#fff' }}>
+      '1200px', margin: '0 auto 40px auto', 
+        background: 'rgba(16, 12, 32, 0.6)', border: '1px solid rgba(0, 242, 254, 0.2)', 
+  dding: '20px', borderRadius: '16px',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px'
+      }}>
+        <div>
+          <h1 style={{ color: '#00f2fe', margin: 0, textShadow: '0 0 10px rgba(0,242,254,0.4)' }}>🛡️ EVIDENCE INTEGRITY OS</h1>
+          <p style={{ color: '#6e658a', marginTop: '5px', margin: 0 }}>Panel de Control SaaS</p>
+        </div>
       </header>
 
-      {/* Formulario de Emisión */}
-      <div style={{ background: '#111', padding: '20px', borderRadius: '10px', border: '1px solid #333', marginBottom: '40px' }}>
-        <h3 style={{ color: '#ff9f1c', marginTop: 0 }}>Emitir Nuevo Folio</h3>
-        <form onSubmit={handleEmit} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-          <input 
-            type="text" placeholder="Nombre del producto" value={productName} onChange={e => setProductName(e.target.value)} required
-            style={{ flex: 1, padding: '10px', background: '#000', border: '1px solid #333', color: '#fff', borderRadius: '5px' }}
-          />
-          <input 
-            type="text" placeholder="SKU (opcional)" value={sku} onChange={e => setSku(e.target.value)}
-            style={{ width: '150px', padding: '10px', background: '#000', border: '1px solid #333', color: '#fff', borderRadius: '5px' }}
-          />
-          <button type="submit" disabled={isEmitting} style={{ padding: '10px 20px', background: '#00f2fe', color: '#000', border: 'none', borderRadius: '5px', fontWeight: 'bold', cursor: 'pointer' }}>
-            {isEmitting ? 'Emitiendo...' : 'Emitir Folio'}
-          </button>
-        </form>
-      </div>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '30px' }}>
+        
+        {/* FORMULARIO ESTILO TARJETA (Columna Izquierda) */}
+        <div style={{ 
+          background: 'rgba(16, 12, 32, 0.6)', border: '1px solid rgba(255, 159, 28, 0.3)', 
+          backdropFilter: 'blur(10px)', padding: '25px', borderRadius: '16px',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.5)', height: 'fit-content'
+        }}>
+          <h3 style={{ color: '#ff9f1c', marginTop: 0 }}>Emitir Nuevo Folio</h3>
+          <form onSubmit={handleEmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <input 
+              type="text" placeholder="Nombre del producto" value={productName} onChange={e => setProductName(e.target.value)} required
+              style={{ padding: '12px', background: 'rgba(0,0,0,0.5)', border: '1px solid #333', color: '#fff', borderRadius: '8px', outline: 'none' }}
+            />
+            <input 
+              type="text" placeholder="SKU (opcional)" value={sku} onChange={e => setSku(e.target.value)}
+              style={{ padding: '12px', background: 'rgba(0,0,0,0.5)', border: '1px solid #333', color: '#fff', borderRadius: '8px', outline: 'none' }}
+            />
+            <button type="submit" disabled={isEmitting} style={{ 
+              padding: '12px', background: '#00f2fe', color: '#000', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer',
+              boxShadow: '0 0 15px rgba(0, 242, 254, 0.4)', transition: '0.3s'
+            }}>
+              {isEmitting ? 'Emitiendo...' : 'Emitir Folio'}
+            </button>
+          </form>
+        </div>
 
-      {/* Lista de Folios */}
-      <div style={{ background: '#111', padding: '20px', borderRadius: '10px', border: '1px solid #333' }}>
-        <h3 style={{ color: '#00f2fe', marginTop: 0 }}>Últimos Folios Emitidos</h3>
-        {loading ? <p>Cargando...</p> : folios.length === 0 ? <p style={{ color: '#6e658a' }}>No hay folios. Emite el primero.</p> : (
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
-            <thead>
-              <tr style={{ borderBottom: '1px solid #333', textAlign: 'left' }}>
-                <th style={{ padding: '10px' }}>Folio</th>
-                <th style={{ padding: '10px' }}>Producto</th>
-                <th style={{ padding: '10px' }}>Hash SHA-256</th>
-                <th style={{ padding: '10px' }}>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
+        {/* LISTA DE FOLIOS COMO TARJETAS (Columna Derecha) */}
+        <div>
+          <h3 style={{ color: '#00f2fe', marginTop: 0 }}>Últimos Folios Emitidos</h3>
+          {loading ? <p>Cargando...</p> : folios.length === 0 ? <p style={{ color: '#6e658a' }}>No hay folios. Emite el primero.</p> : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
               {folios.map((f, i) => (
-                <tr key={i} style={{ borderBottom: '1px solid #222' }}>
-                  <td style={{ padding: '10px', color: '#00f2fe' }}>{f.folio}</td>
-                  <td style={{ padding: '10px' }}>{f.product_name}</td>
-                  <td style={{ padding: '10px', color: '#6e658a', fontSize: '11px' }}>{f.hash_sha256.substring(0, 20)}...</td>
-                  <td style={{ padding: '10px' }}>
-                    <span style={{ background: 'rgba(0,255,102,0.1)', color: '#00ff66', padding: '4px 8px', borderRadius: '4px', fontSize: '11px' }}>VERIFICADO</span>
-                  </td>
-                </tr>
+                <div key={i} style={{ 
+                  background: 'rgba(16, 12, 32, 0.4)', border: '1px solid rgba(0, 242, 254, 0.1)',
+ position: 'relative', overflow: 'hidden',
+                  backdransform 0.2s, boxShadow 0.2s'
+                }}
+                onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,242,254,0.1)' }}
+                onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '10px' }}>
+                    <strong style={{ color: '#00f2fe', fontSize: '16px' }}>{f.folio}</strong>
+                    <span style={{ background: 'rgba(0,255,102,0.1)', color: '#00ff66', padding: '2px 8px', borderRadius: '4px', fontSize: '10px', border: '1px solid #00ff66' }}>VERDE</span>
+                  </div>
+                  <p style={{ margin: '5px 0', fontSize: '14px', color: '#fff' }}><strong>Prod:</strong> {f.product_name}</p>
+                  <p style={{ margin: '5px 0', fontSize: '12px', color: '#6e658a' }}><strong>SKU:</strong> {f.sku}</p>
+                  <div style={{ marginTop: '15px', background: 'rgba(0,0,0,0.5)', padding: '8px', borderRadius: '4px', border: '1px solid #222' }}>
+                    <p style={{ margin: 0, fontSize: '10px', color: '#58536e', wordBreak: 'break-all' }}>
+                      <strong style={{ color: '#ff9f1c' }}>SHA-256:</strong><br/>{f.hash_sha256}
+                    </p>
+                  </div>
+                </div>
               ))}
-            </tbody>
-          </table>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     </main>
   )
