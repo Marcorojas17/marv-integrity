@@ -36,7 +36,6 @@ export default function VerifyFolio() {
     checkFolio();
   }, [folioId]);
 
-  // Efecto 3D Holográfico
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const card = cardRef.current;
@@ -45,10 +44,8 @@ export default function VerifyFolio() {
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
     const rotateX = ((y - centerY) / centerY) * -10;
     const rotateY = ((x - centerX) / centerX) * 10;
-    
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
   };
 
@@ -88,7 +85,6 @@ export default function VerifyFolio() {
           transition: 'transform 0.1s ease, border-color 0.3s, box-shadow 0.3s'
         }}
       >
-        {/* Esquinas de Target */}
         <div style={{ position: 'absolute', top: '-2px', left: '-2px', width: '30px', height: '30px', borderTop: `3px solid ${themeColor}`, borderLeft: `3px solid ${themeColor}`, borderTopLeftRadius: '20px' }}></div>
         <div style={{ position: 'absolute', bottom: '-2px', right: '-2px', width: '30px', height: '30px', borderBottom: `3px solid ${themeColor}`, borderRight: `3px solid ${themeColor}`, borderBottomRightRadius: '20px' }}></div>
 
@@ -96,20 +92,27 @@ export default function VerifyFolio() {
 
         {error ? (
           <>
-            <div style={{ fontSize: '60px', marginBottom: '20px', filter: 'drop-shadow(0 0 10px #ff0055)' }}>❌</div>
+            {/* ESCUDO GEOMÉTRICO DE ERROR */}
+            <div style={{ 
+              width: '80px', height: '80px', margin: '0 auto 20px auto', background: '#ff0055',
+              clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+              display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '40px', color: '#000',
+              boxShadow: '0 0 20px #ff0055'
+            }}>✕</div>
             <h1 style={{ color: '#ff0055', margin: '0 0 10px 0', fontSize: '28px', textShadow: '0 0 10px #ff0055' }}>ALERTA: CLON</h1>
-            <p style={{ color: '#fff', fontSize: '14px', lineHeight: '1.5', marginBottom: '20px' }}>
-              El folio <strong>{folioId}</strong> no existe en la base de datos o ha sido revocado.
-            </p>
-            <div style={{ background: 'rgba(255, 0, 85, 0.1)', padding: '15px', borderRadius: '8px', border: '1px solid rgba(255, 0, 85, 0.3)' }}>
-              <p style={{ margin: 0, fontSize: '12px', color: '#ff0055' }}>PRECAUCIÓN: Este producto podría ser falsificado.</p>
-            </div>
+            <p style={{ color: '#fff', fontSize: '14px', lineHeight: '1.5', marginBottom: '20px' }}>El folio <strong>{folioId}</strong> no existe o ha sido revocado.</p>
           </>
         ) : (
           <>
-            <div style={{ fontSize: '60px', marginBottom: '20px', filter: 'drop-shadow(0 0 10px #00ff66)' }}>✅</div>
+            {/* ESCUDO GEOMÉTRICO DE VERIFICADO */}
+            <div style={{ 
+              width: '80px', height: '80px', margin: '0 auto 20px auto', background: '#00ff66',
+              clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+              display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '40px', color: '#000',
+              boxShadow: '0 0 20px #00ff66'
+            }}>✓</div>
             <h1 style={{ color: '#00ff66', margin: '0 0 10px 0', fontSize: '28px', textShadow: '0 0 10px #00ff66' }}>VERIFICADO</h1>
-            <p style={{ color: '#fff', fontSize: '14px', marginBottom: '30px' }}>Evidencia auténtica registrada en el ecosistema.</p>
+            <p style={{ color: '#fff', fontSize: '14px', marginBottom: '30px' }}>Evidencia auténtica registrada.</p>
             
             <div style={{ textAlign: 'left', fontSize: '13px', background: 'rgba(0,0,0,0.5)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(0,255,102,0.2)' }}>
               <p style={{ margin: '8px 0', display: 'flex', justifyContent: 'space-between' }}><span style={{ color: '#6e658a' }}>Folio:</span> <strong style={{ color: '#fff' }}>{folio.folio}</strong></p>
