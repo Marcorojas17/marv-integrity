@@ -50,9 +50,43 @@ export default function Dashboard() {
 
   return (
     <main style={{ padding: '40px 20px', fontFamily: 'monospace', backgroundColor: '#05040a', minHeight: '100vh', color: '#fff' }}>
-      '1200px', margin: '0 auto 40px auto', 
+      
+      <style jsx global>{`
+        .btn-3d-neon {
+          padding: 14px;
+          background: #00f2fe;
+          color: #000;
+          border: none;
+          border-radius: 8px;
+          font-weight: 900;
+          font-family: monospace;
+          letter-spacing: 1px;
+          cursor: pointer;
+          text-transform: uppercase;
+          box-shadow: 4px 4px 0px #ff9f1c, 8px 8px 20px rgba(0, 242, 254, 0.4);
+          transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+        }
+        .btn-3d-neon:hover {
+          transform: translate(-2px, -2px);
+          box-shadow: 6px 6px 0px #ff9f1c, 10px 10px 25px rgba(0, 242, 254, 0.6);
+        }
+        .btn-3d-neon:active {
+          transform: translate(4px, 4px);
+          box-shadow: 0px 0px 0px #ff9f1c, 2px 2px 10px rgba(0, 242, 254, 0.2);
+        }
+        .btn-3d-neon:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          transform: translate(4px, 4px);
+          box-shadow: 0px 0px 0px #ff9f1c;
+        }
+      `}</style>
+
+      <header style={{ 
+        maxWidth: '1200px', margin: '0 auto 40px auto', 
         background: 'rgba(16, 12, 32, 0.6)', border: '1px solid rgba(0, 242, 254, 0.2)', 
-  dding: '20px', borderRadius: '16px',
+        backdropFilter: 'blur(10px)', padding: '20px', borderRadius: '16px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px'
       }}>
         <div>
@@ -63,7 +97,7 @@ export default function Dashboard() {
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '30px' }}>
         
-        {/* FORMULARIO ESTILO TARJETA (Columna Izquierda) */}
+        {/* FORMULARIO ESTILO TARJETA */}
         <div style={{ 
           background: 'rgba(16, 12, 32, 0.6)', border: '1px solid rgba(255, 159, 28, 0.3)', 
           backdropFilter: 'blur(10px)', padding: '25px', borderRadius: '16px',
@@ -79,25 +113,22 @@ export default function Dashboard() {
               type="text" placeholder="SKU (opcional)" value={sku} onChange={e => setSku(e.target.value)}
               style={{ padding: '12px', background: 'rgba(0,0,0,0.5)', border: '1px solid #333', color: '#fff', borderRadius: '8px', outline: 'none' }}
             />
-            <button type="submit" disabled={isEmitting} style={{ 
-              padding: '12px', background: '#00f2fe', color: '#000', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer',
-              boxShadow: '0 0 15px rgba(0, 242, 254, 0.4)', transition: '0.3s'
-            }}>
+            <button type="submit" disabled={isEmitting} className="btn-3d-neon">
               {isEmitting ? 'Emitiendo...' : 'Emitir Folio'}
             </button>
           </form>
         </div>
 
-        {/* LISTA DE FOLIOS COMO TARJETAS (Columna Derecha) */}
+        {/* LISTA DE FOLIOS COMO TARJETAS */}
         <div>
           <h3 style={{ color: '#00f2fe', marginTop: 0 }}>Últimos Folios Emitidos</h3>
           {loading ? <p>Cargando...</p> : folios.length === 0 ? <p style={{ color: '#6e658a' }}>No hay folios. Emite el primero.</p> : (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
               {folios.map((f, i) => (
                 <div key={i} style={{ 
-                  background: 'rgba(16, 12, 32, 0.4)', border: '1px solid rgba(0, 242, 254, 0.1)',
- position: 'relative', overflow: 'hidden',
-                  backdransform 0.2s, boxShadow 0.2s'
+                  background: 'rgba(16, 12, 32, 0.4)', border: '1px solid rgba(0, 242, 254, 0.1)', 
+                  borderRadius: '12px', padding: '20px', position: 'relative', overflow: 'hidden',
+                  backdropFilter: 'blur(8px)', transition: 'transform 0.2s, boxShadow 0.2s'
                 }}
                 onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,242,254,0.1)' }}
                 onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}
