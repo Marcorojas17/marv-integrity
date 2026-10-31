@@ -1,22 +1,29 @@
 import os
 import base64
-from termux_diffusion import generate
+import urllib.parse
+import urllib.request
 
 def generar_certificado_con_arte():
-    print("🧠 1. Generando arte único con IA (esto puede tardar un poco)...")
-    # Prompt para un fondo abstracto/holográfico
-    prompt = "abstract neon cyberpunk texture, glowing circuits, dark background, gold and cyan colors, 8k resolution"
+    print("🌐 1. Conectando a la IA en la nube (Cero consumo de RAM)...")
     
+    # Prompt para el arte holográfico
+    prompt = "abstract neon cyberpunk texture, glowing circuits, dark background, gold and cyan colors, 8k resolution"
+    prompt_encoded = urllib.parse.quote(prompt)
+    
+    # API gratuita de generación de imágenes
+    url = f"https://image.pollinations.ai/prompt/{prompt_encoded}?width=512&height=512&nologo=true"
+    imagen_path = "/data/data/com.termux/files/home/arte_ia.png"
+
     try:
-        resultado = generate(prompt=prompt, model="speed", width=512, height=512)
-        ruta_imagen = resultado.path
-        print(f"✅ Arte generado en: {ruta_imagen}")
+        print("⏳ Descargando arte generado...")
+        urllib.request.urlretrieve(url, imagen_path)
+        print(f"✅ Arte descargado exitosamente en: {imagen_path}")
     except Exception as e:
-        print(f"❌ Error generando imagen: {e}")
+        print(f"❌ Error descargando la imagen: {e}")
         return
 
     print("🔐 2. Convirtiendo imagen a Base64 e inyectando en el HTML...")
-    with open(ruta_imagen, "rb") as img_file:
+    with open(imagen_path, "rb") as img_file:
         img_base64 = base64.b64encode(img_file.read()).decode('utf-8')
 
     html_path = "apps/html-standalone/verifier-v14.html"
@@ -52,11 +59,9 @@ def generar_certificado_con_arte():
     </body>
     """
     
-    # Reemplazar etiquetas
     nuevo_html = html_content.replace("</head>\n<body>", inyeccion_css)
     nuevo_html = nuevo_html.replace("</body>", aviso_legal)
 
-    # Guardar el resultado
     output_path = "apps/html-standalone/certificado_ia.html"
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(nuevo_html)
